@@ -9,22 +9,6 @@ from .serializers import BlogSerializers
 from .models import Blogs
 # Create your views here.
 
-
-@api_view(['GET'])
-def apiOverView(request):
-    All_Blogs = Blogs.objects.all()
-    serializer = BlogSerializers(All_Blogs)
-    api_urls = {
-        'List': 'AllBlogs',
-        'Detail-view': '/blogPost-detail/<str:pk/>',
-        'update-view': 'blog-create/<str:pk/>',
-        'create-view': 'blog-create/',
-        'delete-view': 'blog-delete/',
-
-    }
-    
-    return Response(serializers)
-
 @api_view(['GET'])
 def blogList(request):
     All_Blogs = Blogs.objects.all()
